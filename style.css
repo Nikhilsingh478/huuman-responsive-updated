@@ -696,7 +696,8 @@ body {
     font-family: "gilroy";
     font-size: 0.95rem;
     font-weight: 600;
-    cursor: pointer;
+    /* cursor: pointer; */
+    cursor: none;
     transition: all 0.3s ease-in-out;
     display: block;
 }
@@ -805,7 +806,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
+    cursor: none;
     transition: transform 0.4s ease;
     flex-shrink: 0;
     pointer-events: auto;
@@ -953,6 +954,7 @@ body {
 
 #igicon {
     height: 40px;
+    cursor: none;
 }
 
 .simage {
