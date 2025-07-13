@@ -18,6 +18,7 @@ body,
 html {
     height: 100%;
     width: 100%;
+    cursor: none;
 }
 
 #main {
@@ -93,12 +94,13 @@ html {
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 600;
-    font-family: "Montserrat", sans-serif;
+    font-family: "gilroy";
     position: relative;
     display: inline-block;
-    cursor: pointer;
     margin: 0 4vw;
+    cursor: none;
 }
+
 
 #nav a::after {
     content: '';
@@ -121,7 +123,7 @@ html {
 .menu-btn,
 .close-btn {
     display: none;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-size: 30px;
     color: #1e1717;
 }
@@ -150,6 +152,8 @@ html {
 
 @media (max-width: 440px) {
     #about-gap {
+        height: 0;
+        width: 0;
         display: none;
     }
 
@@ -393,16 +397,16 @@ html {
         padding: 20px;
     }
 
-    .video,#video{
+    .video,
+    #video {
         width: 100vw;
         height: 33vh;
     }
 
-    .shop{
+    .shop {
         font-size: 12px;
         font-weight: 300;
     }
-
 }
 
 #hero {
@@ -419,7 +423,7 @@ html {
 
 
 #heroleft {
-    margin-top: 20vh;
+    margin-top: 25vh;
     height: auto;
     width: 50%;
 }
@@ -450,7 +454,7 @@ html {
 
 #heroright {
     position: absolute;
-    top: 100px;
+    top: 150px;
     right: 0;
     width: 17%;
     padding: 8px;
@@ -491,6 +495,7 @@ html {
     width: 100%;
     height: 20px;
 }
+
 
 /* about section starts */
 .video {
@@ -537,20 +542,20 @@ html {
     color: #373a40;
     text-shadow: 2px 2px rgb(64, 44, 44);
     font-family: "kajiro";
+    font-weight: 100;
     margin-left: 80px;
     margin-top: 40px;
 }
-
-
 
 /* about section ends  */
 
 
 /* products section starts */
-
 body {
     background-color: blanchedalmond;
-    /* cursor: none; */
+    font-family: "gilroy";
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -558,18 +563,28 @@ body {
     --card-width: calc(var(--card-height) / 1.1);
 }
 
+/* === Grid Container (3x3) === */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 3rem;
+    justify-items: center;
+    align-items: start;
+    margin: auto;
+}
+
+/* === Individual Card Container === */
 .newcard {
     width: 300px;
     height: 550px;
-    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 20px; */
-    /* background: #191c29; */
 }
 
+/* === Card Styling === */
 .wrapcard {
     display: flex;
     flex-direction: column;
@@ -578,11 +593,11 @@ body {
     width: 320px;
     height: 420px;
     background-color: rgb(108, 102, 102);
-    /* background-color: rgb(27, 27, 27); */
     border-radius: 20px;
-    margin: auto;
-
+    padding: 10px 25px;
+    /* ✅ updated padding */
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 .wrapcard:hover {
@@ -602,26 +617,19 @@ body {
     margin: auto;
 }
 
-.character {
-    filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
-}
-
+/* === Background Wrapper Image === */
 .wrapper {
     width: 280px;
     height: 260px;
     transition: all 0.5s;
     position: absolute;
-    /* width: 100%; */
-    z-index: -1;
+    z-index: 1;
     margin: auto;
 }
 
 .card:hover .wrapper {
-    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    transform: perspective(900px) translateY(-5%) rotateX(25deg);
     filter: blur(6px);
-    /* box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); */
 }
 
 .wrapper::before,
@@ -654,21 +662,53 @@ body {
     height: 120px;
 }
 
-
-.character {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.5s;
-    position: absolute;
-    z-index: -1;
+/* === Title === */
+.title-text {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    color: #f0e6dc;
+    font-family: "gilroy";
 }
 
-.card:hover .character {
-    opacity: 1;
-    transform: translate3d(0%, -10%, 100px);
+/* === Price === */
+.cost {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    color: #eaeaea;
+    font-family: "gilroy";
 }
 
+/* === Buy Now Button === */
+#buy {
+    padding: 9px 25px;
+    border-radius: 15px;
+    background-color: rgb(52, 50, 50);
+    color: aliceblue;
+    border: 1px solid rgb(253, 253, 253);
+    margin-top: 0.5rem;
+    /* ✅ small margin only */
+    font-family: "gilroy";
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: block;
+}
+
+#buy:hover {
+    background-color: rgb(57, 34, 34);
+    border-color: rgb(176, 152, 143);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* === Cover Image === */
 .cover-image {
     width: 100%;
     height: 100%;
@@ -677,125 +717,72 @@ body {
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-#buy {
-    padding: 7px 20px;
-    border-radius: 15px;
-    background-color: rgb(52, 50, 50);
-    color: aliceblue;
-    border-color: rgb(253, 253, 253);
-    margin: auto;
+/* === Character Image (Hover) === */
+.character {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: all 0.5s;
+    position: absolute;
+    z-index: 2;
+    /* ✅ above blur wrapper */
+    filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
 }
 
-#buy:hover {
-    background-color: rgb(57, 34, 34);
-    transition: all 0.3s ease-in;
-    border-color: rgb(176, 152, 143);
-
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -10%, 100px);
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Adjust the gap as needed */
-    place-items: center;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+        gap: 2rem;
+    }
 }
 
-.cost {
-    margin: auto;
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
 
+    .wrapcard {
+        width: 100%;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    .card {
+        padding: 0 20px;
+    }
+
+    .newcard {
+        width: 100%;
+    }
 }
-
 
 /* products section ends */
 
-
-/* review section starts  */
-
-.container {
-    text-align: center;
-    max-width: 1200px;
-    margin: auto;
-    padding-bottom: 40px;
-}
-
-.title {
-    color: rgb(28, 28, 26);
-    font-size: 70px;
-    margin-bottom: 10px;
-    font-family: 'Kajiro';
-    text-shadow: 1px 1px rgb(64, 44, 44);
-}
-
-.subtitle {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-family: Tahoma;
-}
-
-.description {
-    font-size: 16px;
-    margin-bottom: 30px;
-    font-family: monospace;
-}
-
-.testimonials-wrapper {
-    overflow: hidden;
+/* testimonials section starts */
+.carousel-wrapper {
     width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    background: #f0f0f0;
 }
 
-.testimonials-grid {
+.carousel-track {
     display: flex;
-    animation: scroll 20s linear infinite;
+    gap: 24px;
+    /* animation: scrollLeft 25s linear infinite; */
+    will-change: transform;
 }
 
-.testimonial {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: left;
-    flex: 0 0 300px;
-    margin-right: 20px;
-    height: 250px;
-    margin: 20px;
-    animation: fadeInUp 0.5s ease-out forwards;
-}
-
-.testimonial:hover {
-    background-color: rgb(249, 226, 179);
-    transition: all 0.4s ease-in;
-    transform: scale(1.2, 1.2);
-}
-
-.stars {
-    color: #ffbf00;
-    font-size: 18px;
-}
-
-.review {
-    font-size: 14px;
-    margin: 10px 0;
-    font-family: system-ui;
-}
-
-.author {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.role {
-    font-size: 12px;
-}
-
-.smile {
-    height: 50px;
-}
-
-@keyframes scroll {
+@keyframes scrollLeft {
     0% {
         transform: translateX(0);
     }
@@ -805,78 +792,163 @@ body {
     }
 }
 
-/* Media Queries for Responsiveness */
-/* @media (max-width: 768px) {
-    .title {
-        font-size: 50px;
-    }
+.testimonial-card {
+    position: relative;
+    width: 260px;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+    pointer-events: auto;
+}
 
-    .subtitle {
-        font-size: 24px;
-    }
+.testimonial-card:hover {
+    transform: scale(1.02);
+}
 
-    .description {
-        font-size: 14px;
-    }
+.bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+    z-index: 0;
+}
 
-    .testimonial {
-        flex: 0 0 90%;
-        margin: 0 auto 20px;
-        height: auto;
-    }
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.99);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
 
-    .testimonials-grid {
-        display: block;
-    }
+.testimonial-card:hover .bg-image {
+    opacity: 1;
+    transform: scale(1.05);
+}
 
-    .testimonials-wrapper {
-        overflow: hidden;
-        max-width: 90%;
-        margin: auto;
-    }
+.testimonial-card:hover .overlay {
+    opacity: 0.5;
+}
 
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-} */
-/* 
-@media (max-width: 480px) {
-    .title {
-        font-size: 40px;
-    }
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: #000;
+    transition: color 0.4s ease;
 
-    .subtitle {
-        font-size: 20px;
-    }
+}
 
-    .description {
-        font-size: 12px;
-    }
+.testimonial-card:hover .content {
+    color: #fff;
+}
 
-    .testimonial {
-        padding: 10px;
-    }
-} */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
 
-/* review section ends */
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    object-fit: cover;
+}
 
+.name {
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.4s ease;
+}
 
+.quote {
+    font-size: 15px;
+    line-height: 1.4;
+    transition: color 0.4s ease;
+    font-family: "gilroy";
+
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 18px;
+    margin-top: 20px;
+    font-style: italic;
+    transition: color 0.4s ease;
+}
+
+.role {
+    font-size: 13px;
+    opacity: 0.7;
+    transition: color 0.4s ease;
+    font-family: "gilroy";
+
+}
+
+.testimonial-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    background: #f0f0f0;
+    gap: 24px;
+}
+
+.testimonial-header {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-family: 'Kajiro', sans-serif;
+    font-size: 60px;
+    font-weight: normal;
+    color: #222;
+    line-height: 1;
+}
+
+.subtext {
+    font-size: 16px;
+    color: #555;
+    margin-top: 4px;
+    font-family: "gilroy";
+}
+
+/* testimonials section ends */
+
+/* socials section starts */
 /* socials section starts */
 
 #socials {
     background-color: rgb(109, 103, 97);
-    height: 560px;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 150px;
     padding: 80px;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 #igicon {
@@ -885,10 +957,12 @@ body {
 
 .simage {
     height: 400px;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 #igicon:hover {
-    transform: scale(1.2, 1.2);
+    transform: scale(1.2);
     transition: all 0.4s ease-in;
 }
 
@@ -896,6 +970,8 @@ body {
     font-family: kajiro;
     font-size: 90px;
     line-height: 70px;
+    font-weight: 100;
+    color: white;
 }
 
 .ig {
@@ -903,13 +979,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 20px; */
     padding: 40px;
+    text-align: center;
 }
 
 .ig h2 {
     font-size: 70px;
     font-family: kajiro;
+    font-weight: 100;
 }
 
 .socials {
@@ -917,6 +994,9 @@ body {
     gap: 150px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 .help {
@@ -929,15 +1009,14 @@ body {
     color: #000000;
     pointer-events: all;
     text-decoration: underline;
-    /* text-transform: uppercase; */
     font-size: 15px;
     font-weight: 600;
     font-family: "gilroy";
 }
 
 .help a:hover {
-    text-shadow: 0.3px 0.3px rgb(64, 44, 44) !important;
-    transition: all 0.3s ease-in !important;
+    text-shadow: 0.3px 0.3px rgb(64, 44, 44);
+    transition: all 0.3s ease-in;
 }
 
 .down {
@@ -957,19 +1036,59 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 #page2 h1 {
     font-size: 35vw;
     font-family: 'Segoe UI';
-    /* letter-spacing: 10px; */
     font-weight: 700;
     text-transform: uppercase;
     color: white;
     opacity: 0.7;
     text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
-    /* font-family: "Montserrat", sans-serif; */
+}
+
+/* -------------------------- */
+/* ✅ Responsive Media Query */
+/* -------------------------- */
+@media (max-width: 768px) {
+    #socials {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+
+    .sleft h2 {
+        font-size: 50px;
+        line-height: 45px;
+    }
+
+    .simage {
+        height: 250px;
+    }
+
+    .socials {
+        flex-direction: column-reverse;
+        gap: 40px;
+        padding: 30px 10px;
+    }
+
+    .ig h2 {
+        font-size: 40px;
+    }
+
+    .help {
+        grid-template-columns: 2, 1fr;
+        gap: 10px;
+    }
+
+    .help a {
+        font-size: 14px;
+    }
+
+    #igicon {
+        height: 35px;
+    }
 }
 
 
@@ -1072,7 +1191,6 @@ body {
     z-index: 999;
 }
 
-
 /* css for cursor ends  */
 
 
@@ -1089,3 +1207,10 @@ hr {
     border: black;
     opacity: 0.9;
 }
+
+@media (max-width: 440px) {
+    #cursor {
+        display: none;
+    }
+}
+
