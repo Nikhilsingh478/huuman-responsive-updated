@@ -85,8 +85,8 @@ gsap.from(".help a", {
     trigger: ".help a",
     scroller: "body",
     scrub: 5,
-    start: "top 95%",
-    end: "top 90%",
+    start: "top 90%",
+    end: "top 80%",
   },
 });
 
@@ -100,8 +100,8 @@ gsap.from(".ig h2", {
     trigger: ".ig h2",
     scroller: "body",
     scrub: 5,
-    start: "top 95%",
-    end: "top 90%",
+    start: "top 85%",
+    end: "top 75%",
   },
 });
 
@@ -132,8 +132,8 @@ gsap.from(".ig a", {
     trigger: ".ig a",
     scroller: "body",
     scrub: 5,
-    start: "top 98%",
-    end: "top 94%",
+    start: "top 85%",
+    end: "top 81%",
   },
 });
 
